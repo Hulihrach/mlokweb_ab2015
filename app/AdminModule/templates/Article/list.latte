@@ -1,0 +1,27 @@
+{block title}Seznam aktualit{/block}
+{block content}
+<a n:foreach="$languages as $lang" href="{plink :Admin:Article:list}?filter={$lang->getShort()}"><button class="btn btn-success col-sm-3" style="margin: 1em;">Zobrazit aktuality v jazyce "{$lang->getName()}"</button></a>
+<a href="{plink :Admin:Article:list}?filter={$locale}&removed=1"><button class="btn btn-warning col-sm-2" style="margin: 1em;">Zobrazit smazané aktuality</button></a>
+<table class="table">
+	<tr>
+		<td>ID</td>
+		<td>Titulek</td>
+		<td>Obsah</td>
+		<td>Vytvořena</td>
+		<td>Autor</td>
+		<td>Zobrazovat</td>
+		<td>Jazyk</td>
+		<td>Akce</td>
+	</tr>
+	<tr n:foreach="$articles as $article">
+		<td>#{$article->id}</td>
+		<td>{!$article->title}</td>
+		<td>{!$article->content}</td>
+		<td>{$article->created_at|date:"H:i d.m.Y"}</td>
+		<td>{$article->account->getUsername()}</td>
+		<td>{$article->display ? 'Ano' : 'Ne'}</td>
+		<td>{$article->lang}</td>
+		<td><a class="glyphicon glyphicon-pencil" href="{plink :Admin:Article:edit $article->contentId}"></a>&nbsp;<a class="glyphicon glyphicon-remove" id="article-remove" n:href=":Admin:Article:Delete $article->id"></a></td>
+	</tr>
+</table>
+{/block}

@@ -1,0 +1,13 @@
+{block title}{_titles.front.article.default}{/block}
+
+{block content}
+<div class='article' n:foreach="$articles as $article">
+	<h2><a href='/front/article/detail/{$article->id}'>{$article->title}</a></h2>
+	<p>{!$article->content}</p>
+	<small>Napsal:&nbsp;{$article->account->getUsername()}&emsp;{$article->created_at|date:"d. m. Y H:i"}&emsp;ID:&nbsp;#{$article->id}&emsp;</small>
+	<div n:if="$article->file">
+		<a href="/attachments/{$article->file->getInternalName()}" class="article-attachment" style="background: #888">{$article->file->getPublicName()}</a>
+	</div>
+</div>
+{if (($prev - 1) > $actualId)}<a href="{plink this $prev}">{_messages.forms.move.prev}</a>{/if}{if ($next >= 0) && ($next != $actualId)}<a href="{plink this ($next)}" class="right">{_messages.forms.move.next}</a>{/if}
+{/block}

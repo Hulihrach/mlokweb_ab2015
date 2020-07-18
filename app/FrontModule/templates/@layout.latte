@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>MLOK | {include title}</title>
+
+	<link rel="stylesheet" media="all" href="{$basePath}/css/layout.css">
+	<link rel="stylesheet" media="all" href="{$basePath}/css/controls.css">
+	<link rel="shortcut icon" href="{$basePath}/images/favicon.png" type="image/png">
+	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	<script type="text/javascript" n:syntax="off">
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-54517589-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+	{block head}{/block}
+</head>
+
+<body>
+	<div class="top-panel">
+		<a class="item" href="{plink :Front:Home:default}" title="{_titles.front.home.default}">
+			<div class="triangle"><span>{_titles.front.home.default}</span></div>
+		</a>
+		<a class="item" href="{plink :Front:Article:default}" title="{_titles.front.article.default}">
+			<div class="control"><span>{_titles.front.article.default}</span></div>
+		</a>
+		<a n:foreach="$pages as $page" n:if="$page->getPage()->getDisplay() AND $page->getContent() AND $page->getTitle()" class="item" n:href=":Front:Page:default $page->getPage()->getAbbreviation()" title="{_titles.front.propositions.default}">
+			<div class="control"><span>{$page->getTitle()}</span></div>
+		</a>
+		<span class="item langitem" href="#">
+			<div class="control">
+				<div class="hidden langs">
+					<a n:foreach="$languages as $lang" n:if="$lang->getShort() != $locale" n:href="this, locale => $lang->getShort()">{$lang->getName()}</a>
+				</div>
+			</div>
+		</span>
+	</div>
+	<div class="sidebar">
+		{block sidebar}
+			<h3>{_titles.admin.front}</h3>
+			{if !$user->isLoggedIn()}
+				<a class="item" href="{plink :Front:SignIn:default}">{_messages.top.login}</a>
+				<a class="item" href="{plink :Front:Register:default}">{_messages.top.reg}</a>
+			{/if}
+			{if $user->isInRole("mod")}
+				<a href="{plink :Admin:Home:default}" class="item">{_messages.top.admin}</a><br>
+			{/if}
+			{if $user->isLoggedIn()}
+				<a href="{plink :Front:Home:logout}" class="item">{_messages.top.logout}</a>
+			{/if}
+			{ifCurrent :Front:Home:default}{else}
+				<div class="part">
+					<h3>{_titles.front.all.par}</h3>
+					<a href="http://hicoria.com" target="_blank"><img src="{$basePath}/images/loga_partneri/hicoria_black_logo.jpg" alt="Hicoria"></a>
+					<h3>{_titles.front.all.parcsos}</h3>
+					<a href="http://www.orientacnisporty.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/csos.svg" alt="Český svaz orientačních sportů"></a>
+					<a href="http://www.orientacnibeh.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/ob.png" alt="Sekce orientačního běhu"></a>
+					<a href="http://www.lesycr.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/LesyCR_zeleny.gif" alt="Lesy ČR"></a>
+					<a href="http://www.csob.cz" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/csob.svg" alt="ČSOB Pojišťovna"></a>
+					<a href="http://www.toitoi.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/toitoi.svg" alt="TOI TOI"></a>
+					<a href="http://www.tmapy.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/t-mapy.svg" alt="T-MAPY"></a>
+					<a href="http://www.zaket.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/zaket.svg" alt="Žaket"></a>
+					<a href="http://www.equica.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/equica.svg" alt="Equica"></a>
+					<a href="http://trimtexsport.com/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/trimtex.svg" alt="Trimtex"></a>
+					<a href="http://www.hshsport.cz" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/hsh.svg" alt="HSH sport"></a>
+					<a href="http://www.inov-8.com/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/inov-8.svg" alt="INOV-8"></a>
+					<a href="http://www.racom.eu/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/racom.svg" alt="Racom"></a>
+				</div>
+			{/ifCurrent}
+		{/block}
+	</div>
+	<script>makeControls();</script>
+	<div class="container">
+		<script>document.documentElement.className+=' js'</script>
+		<div class="logo">
+			{ifCurrent :Front:Home:default}
+				<h1 h>Český pohár, INOV-8 CUP - žebříček A, žebříček B-Čechy</h1>
+			{else}
+				<img src="{$basePath}/images/logo_za_v004.svg" alt="logo závodu">
+				<h1>Český pohár, INOV-8 CUP - žebříček A, žebříček B-Čechy</h1>
+				<img id="mlok" src="{$basePath}/images/mlok.svg" alt="logo oddílu">
+			{/ifCurrent}
+		</div>
+
+		<div class="content">
+			<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+			{include content}
+		</div>
+
+		{block scripts}
+		{/block}
+	</div>
+</body>
+</html>

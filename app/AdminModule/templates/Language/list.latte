@@ -1,0 +1,19 @@
+{block title}Seznam jazyků{/block}
+{block content}
+<table class="table table-hover">
+	<tr>
+		<td>ID</td>
+		<td>Zkratka</td>
+		<td>Název</td>
+		<td>Aktivní</td>
+		<td>Akce</td>
+	</tr>
+	<tr n:foreach="$languages as $lang">
+		<td>{$lang->getId()}</td>
+		<td>{$lang->getShort()}</td>
+		<td>{$lang->getName()}</td>
+		<td>{$lang->getActive()}</td>
+		<td><a class="glyphicon glyphicon-remove" id="article-remove" n:href=":Admin:Language:delete $lang->getId()"></a></td>
+	</tr>
+</table>
+{/block}

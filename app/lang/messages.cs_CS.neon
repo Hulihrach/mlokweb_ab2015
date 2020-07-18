@@ -1,0 +1,40 @@
+common:
+	exception: "Chyba"
+	author: "Autor"
+	regnum: "Registrační číslo"
+homepage:
+	hello: "Ahoj světe!"
+	event_name: "Český pohár, INOV-8 CUP – žebříček A, žebříček B-Čechy"
+	comments: "sadkajolkbnlkadfs"
+	comment: "Komentář"
+	logged_out: "Odhlášení proběhlo úspěšně"
+forms:
+	username: "Uživatelské jméno:"
+	password: "Heslo:"
+	need_username: "Zadejte uživatelské jméno"
+	need_password: "Zadejte heslo"
+	register:
+		completed: "Registrace proběhla úspěšně"
+		password_check: "Kontrola hesla:"
+		need_password_check: "Zadejte heslo pro kontrolu"
+		send: "Zaregistrovat"
+		user_already_exists: "Uživatel s tímto jménem již existuje"
+	login:
+		send: "Přihlásit se"
+		invalid_password: "Špatné heslo"
+		user_not_found: "Uživatel nenalezen"
+	comment:
+		add_new: "Přidat nový komentář"
+		comments: "Komentáře"
+		need_regnum: "Zadejte Vaše registrační číslo"
+		need_content: "Zadejte obsah komentáře"
+		content: "Obsah komentáře"
+		send: "Přidat"
+	move:
+		prev: "Starší příspěvky"
+		next: "Novější příspěvky"
+top:
+	admin: "Administrace"
+	logout: "Odhlásit se"
+	reg: "Zaregistrovat"
+	login: "Přihlásit se"

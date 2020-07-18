@@ -1,0 +1,44 @@
+{**
+ * My Application layout template.
+ *
+ * @param string   $basePath web base path
+ * @param string   $robots   tell robots how to index the content of a page (optional)
+ * @param array    $flashes  flash messages
+ *}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="robots" content="{$robots}" n:ifset="$robots">
+
+	<title>MLOK | {include title}</title>
+
+	<link rel="stylesheet" media="all" href="{$basePath}/css/layout.css">
+	<link rel="stylesheet" media="all" href="{$basePath}/css/controls.css">
+	<link rel="shortcut icon" href="{$basePath}/images/favicon128.png?v=3" type="image/png">
+	{block head}{/block}
+</head>
+
+<body>
+	<div class="triangle" id="one"><div></div></div>
+	<div class="line"></div>
+	<div class="control" id="two"></div>
+	<div class="container">
+	<script> document.documentElement.className+=' js' </script>
+	<h1 class="logo"> MariánskoLázeňský Orientační Klub </h1>
+	<h2 class="logo"> Závody žebříčku A/B </h2>
+	<div class="menu"><div class="item">home</div><div class="item">homelome</div></div>
+	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
+	<div class="sidebar">{block sidebar}{/block}</div>
+	{include content}
+
+	{block scripts}
+	<script src="{$basePath}/js/jquery.js"></script>
+	<script src="{$basePath}/js/netteForms.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	{/block}
+	</div>
+</body>
+</html>

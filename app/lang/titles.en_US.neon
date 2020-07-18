@@ -1,0 +1,16 @@
+front:
+	all:
+		par: "Our partners"
+		parcsos: "CSOS partners"
+	home:
+		default: "Index page"
+		articles: "Fresh news"
+	article:
+		default: "News"
+		detail: "Article detail"
+	propositions:
+		default: "Propositions"
+admin:
+	base: "Administration"
+	front: "Web administration"
+	language: "Languages"

@@ -1,0 +1,55 @@
+{block title}Upravit aktualitu{/block}
+{block content}
+<div class="panel panel-default">
+	<div class="panel-heading">Editovat aktualitu</div>
+	{form editArticle}
+	{input content_id, value => $articles['cs']->contentId}
+	{input redirect}
+	<div class="panel-body">
+		<ul id="editArticleTab" class="nav nav-pills">
+			<li n:foreach="$languages as $lang"><a href="#{$lang->getShort()}" data-toggle="tab">{$lang->getName()}</a></li>
+		</ul>
+		<div class="tab-content">
+			<div n:foreach="$languages as $lang" class="tab-pane fade" id="{$lang->getShort()}">
+				<div class="input-group center-block">
+					{var $article = $articles[$lang->getShort()]}
+					{var $title = $article ? $article->title : ""}
+					{input title_{$lang->getShort()}, class => "form-control", value => $title }
+				</div>
+				<div class="input-group" style="width: 100%; clear: both;">
+					{input content_{$lang->getShort()} }
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer" style="min-height: 4em;">
+		<div class="input-group col-sm-2 pull-left" style="margin-left: 1em;">
+			<span class="input-group-addon">{label abbr /}</span>{input abbr, class => "form-control", style => "width: 10em", value => $articles['cs']->abbreviation}
+		</div>
+		<div class="input-group col-sm-2 pull-right">
+			<span class="input-group-addon">{label display /}</span>{input display, class => "form-control", value => 1}
+		</div>
+	</div>
+</div>
+<div class="input-group col-sm-3 center-block">
+	{input edit, class => "btn btn-default"}
+	{input redirectSubmit, class => "btn btn-default"}
+</div>
+{/form}
+
+{/block}
+{block scripts}
+<script>
+{foreach $languages as $lang}
+CKEDITOR.replace( 'frm-editArticle-content_{!$lang->getShort()}' );
+var element = new CKEDITOR.dom.element( document.getElementById( 'frm-editArticle-content_{!$lang->getShort()}' ) );
+{var $article = $articles[$lang->getShort()]}
+{var $content = $article ? $article->content : ""}
+element.setValue({$content});
+{/foreach}
+$('#editArticleTab a').click(function (e) {
+	e.preventDefault();
+	$(this).tab('show');
+});
+</script>
+{/block}

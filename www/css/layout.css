@@ -1,0 +1,306 @@
+a {
+	text-decoration: none;
+	border: none;
+	color: #336600;
+}
+
+a:active {
+	color: #5599dd;
+}
+
+a:hover {
+	border-left: 3pt solid #336600;
+}
+
+body {
+	font-family: 'Open Sans', Sans-Serif;
+	background: #ffffff url("../images/background.jpg") no-repeat center center fixed;
+}
+
+caption {
+	text-align: left;
+	font-weight: bold;
+	margin: 2pt auto 2pt auto;
+}
+
+h2, h3 {
+	clear: both;
+	color: #dd5500;
+}
+
+.article {
+	text-align: justify;
+	padding: 1em;
+	background: rgb(204, 238, 255);
+	border: 0;
+	margin: 0 0 3pt 0;
+}
+
+.article_h {
+	margin-left: 3em;
+	padding: 0.5em;
+	color: #dd5500;
+}
+
+.article~a {
+	font-weight: bold;
+}
+
+.article~h3 {
+	color: #dd5500;
+}
+
+.boxed {
+	position: relative;
+	padding: 1em;
+	margin: 0 0 3pt 0;
+	background: rgba(238, 238, 238, 0.8);
+}
+
+.boxed h2 {
+	text-align: center;
+}
+
+.boxed img {
+	display: block;
+	width: auto;
+	height: 110pt;
+	margin: auto auto;
+}
+
+.container {
+	position: absolute;
+	top: 24%;
+	width: 84%;
+	margin: 0 0 auto auto;
+	min-height: 100%;
+	margin-top: 1%;
+}
+
+.content {
+	background-color: rgba(255, 255, 255, 0.8);
+	width: 800px;
+	position: relative;
+	min-height: 600px;
+	margin: auto auto;
+	padding: 2em;
+}
+
+.content p {
+	text-align: justify;
+}
+
+.comment {
+	padding: 0.5em;
+}
+
+.flash {
+	position: relative;
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+	padding: 1.5em;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.langitem:hover .hidden {
+	visibility: visible;
+}
+
+.langs {
+	z-index: 2;
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 15%;
+	height: 10%;
+	margin: 0.1em 1em 1em 1em;
+	background: transparent;
+	padding: 12% 0 0 0;
+}
+
+.langs:hover {
+	visibility: visible;
+}
+
+.logo {
+	position: fixed;
+	top: 12%;
+	right: 0;
+	height: 10%;
+	text-align: center;
+	width: 70%;
+	margin: 0;
+	padding: 0 calc(15% + 1.2em) 0.2em 0;
+	z-index: 1;
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.logo img {
+	height: 100%;
+	display: inline;
+}
+
+.logo h1 {
+	display: inline;
+	margin: auto 0 auto 0;
+	font-size: large;
+	color: #5599dd;
+}
+
+.logo [h] {
+	margin: auto 0 auto 0;
+	font-size: x-large;
+	color: #5599dd;
+	position: fixed;
+	left: 15%;
+	top: calc(22% - 26pt);
+}
+
+.logos img{
+	display: inline;
+	height: auto;
+	margin: 0 0.5em 0 0;
+}
+
+.logos a:hover {
+	border: none;
+}
+
+.menu {
+	position: relative;
+	margin: 0 auto;
+	width: 850px;
+	border: 1px solid green;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.part a:hover{
+	border: none;
+}
+
+.partners a:hover{
+	border: none;
+}
+
+.partners img {
+	display: inline;
+	height: auto;
+	width: 220px;
+	max-height: 200px;
+	margin: 1em;
+}
+
+.sidebar {
+	background-color: rgba(255, 255, 255, 0.8);
+	position: absolute;
+	right: 0;
+	top: calc(22% + 0.2em);
+	width: 15%;
+	min-height: 600px;
+	margin-left: 0;
+	padding: 0 0.5em 0 0.5em;
+	text-align: right;
+}
+
+.sidebar .item {
+	float: right;
+	clear: both;
+	margin-right: 10pt;
+}
+
+.sidebar img {
+	max-width: 100%;
+	max-height: 100px;
+}
+
+.top-panel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.8);
+	width: 100%;
+	height: 12%;
+	z-index: 2;
+}
+
+.top-panel .item {
+	background-color: transparent;
+	position: fixed;
+	/*width: 100pt;*/
+	/*height: 35pt;*/
+	line-height: 100%;
+	vertical-align: middle;
+}
+
+.top-panel a:hover {
+	border: none;
+}
+
+.langs a:hover {
+	border-left: 3pt solid #336600;
+}
+
+/*.top-panel .item span {
+	position: relative;
+	right: 10pt;
+}*/
+
+.top-panel .item:hover span{
+	border-left: 3pt solid #336600;
+}
+
+.top-panel h2 {
+	margin-left: 10%;
+}
+
+.right {
+	float: right;
+}
+
+.bg-control {
+	position: relative;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 0 100px 100px;
+	border-color: transparent transparent #fa4f00 transparent;
+}
+
+/*div.line{
+	-webkit-transform-origin: 0 50%;
+	-moz-transform-origin: 0 50%;
+	transform-origin: 0 50%;
+	
+	height: 5px; /* Line width of 3 */
+	/*background: #948C79; /* Black fill */
+	/*opacity: 0.5;
+	box-shadow: 0 0 8px #B99B7E;
+	/* For some nice animation on the rotates: */
+	/*-webkit-transition: -webkit-transform 1s;
+	-moz-transition:    -moz-transform 1s;
+	transition:         transform 1s;
+}*/
+
+#csos_h {
+	width: 25%;
+}
+
+#logo_h {
+	width: 50%;
+}
+
+#mlok {
+	float: right;
+	margin: 0.3em;
+	height: 90%;
+}
+
+#mlok_h {
+	width: 16%;
+}

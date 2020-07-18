@@ -1,0 +1,19 @@
+{block title}{/block}
+{block content}
+{form addLanguage}
+<div class="panel panel-default">
+	<div class="panel-heading">Přidat jazyk</div>
+	<div class="panel-body">
+		<div class="input-group center-block">
+			{label name /}{input name, class => "form-control"}
+		</div>
+		<div class="input-group center-block">
+			{label short /}{input short, class => "form-control"}
+		</div>
+	</div>
+</div>
+<div class="input-group col-sm-3 center-block">
+	{input add, class => "btn btn-default form-control"}
+</div>
+{/form}
+{/block}

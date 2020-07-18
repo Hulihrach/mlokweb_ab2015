@@ -1,0 +1,61 @@
+#
+# SECURITY WARNING: it is CRITICAL that this file & directory are NOT accessible directly via a web browser!
+#
+# If you don't protect this directory from direct web access, anybody will be able to see your passwords.
+# http://nette.org/security-warning
+#
+includes:
+	- config.local.neon
+
+parameters:
+
+
+php:
+	date.timezone: Europe/Prague
+	# zlib.output_compression: yes
+
+
+nette:
+	application:
+		errorPresenter: Error
+		mapping:
+			*: App\*Module\*Presenter
+
+	session:
+		expiration: 14 days
+
+
+services:
+	- App\RouterFactory
+	router: @App\RouterFactory::createRouter
+	user: App\Common\Models\User
+#models
+	#common
+	account: App\Common\Models\Account(@accountEntity)
+	article: App\Common\Models\Article(@articleEntity)
+	comment: App\Common\Models\Comment(@commentEntity)
+	file: App\Common\Models\File(@fileEntity, %attachments.path%)
+	language: App\Common\Models\Language(@languageEntity)
+	page: App\Common\Models\Page(@pageEntity)
+	pageTranslation: App\Common\Models\PageTranslation(@pageTranslationEntity)
+#entities
+	#common
+	articleEntity: @doctrine.dao(App\Common\Entities\ArticleEntity)
+	accountEntity: @doctrine.dao(App\Common\Entities\AccountEntity)
+	commentEntity: @doctrine.dao(App\Common\Entities\CommentEntity)
+	fileEntity: @doctrine.dao(App\Common\Entities\FileEntity)
+	languageEntity: @doctrine.dao(App\Common\Entities\LanguageEntity)
+	pageEntity: @doctrine.dao(App\Common\Entities\PageEntity)
+	pageTranslationEntity: @doctrine.dao(App\Common\Entities\PageTranslationEntity)
+
+	authenticator: App\Common\Models\Authenticator(@account)
+
+extensions:
+	translation: Kdyby\Translation\DI\TranslationExtension
+	events: Kdyby\Events\DI\EventsExtension
+	annotations: Kdyby\Annotations\DI\AnnotationsExtension
+	doctrine: Kdyby\Doctrine\DI\OrmExtension
+
+translation:
+	default: cs
+	fallback: [cs_CZ, cs]

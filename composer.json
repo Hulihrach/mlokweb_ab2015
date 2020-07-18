@@ -1,0 +1,24 @@
+{
+	"name": "mlok/za2015",
+	"description": "Website of an orienteering event by club MLOK",
+	"homepage": "http://mlok.wz.cz",
+	"type": "project",
+	"license": [],
+	"authors": [
+		{
+			"name": "MLOK",
+			"homepage": "http://mlok.wz.cz"
+		}
+	],
+	"require": {
+		"php": ">=5.5",
+		"nette/nette": "v2.2.7",
+		"kdyby/translation": "@dev",
+		"kdyby/doctrine": "~2.1",
+		"michelf/php-markdown": "1.*",
+		"google/apiclient": "1.0.*@beta"
+	},
+	"require-dev": {
+		"nette/tester": "~1.0.0"
+	}
+}

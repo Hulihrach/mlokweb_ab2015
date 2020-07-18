@@ -1,0 +1,43 @@
+{block title}{_titles.front.home.default}{/block}
+
+{block content}
+<h1 class="boxed logos">
+	<a href="http://www.mlok.wz.cz" target="_blank"><img id="mlok_h" src="{$basePath}/images/mlok.svg" alt="logo oddílu"></a>
+	<img id="logo_h" src="{$basePath}/images/logo_za_v004.svg" alt="logo závodu">
+	<a href="http://www.orientacnisporty.cz/" target="_blank"><img id="csos_h" src="{$basePath}/images/loga_partneri/csos/csos.svg" alt="Český svaz orientačních sportů"></a>
+</h1>
+<div class="boxed">
+	<h2>{_titles.front.home.articles}</h2>
+	<div class="article" n:foreach="$articles as $article" n:if="$article->content">
+		<h2><a href='/front/article/detail/{$article->id}'>{$article->title}</a></h2>
+		<p>{!$article->content}</p>
+		<small>Napsal:&nbsp;{$article->account->getUsername()}&emsp;{$article->created_at|date:"d. m. Y H:i"}&emsp;ID:&nbsp;#{$article->id}&emsp;</small>
+		<div n:if="$article->file">
+			<a href="/attachments/{$article->file->getInternalName()}" class="article-attachment" style="background: #888">{$article->file->getPublicName()}</a>
+		</div>
+	</div>
+</div>
+<div class="boxed">
+	<h2>Poslední komentáře</h2>
+	<div n:foreach="$latestComments as $comment" class="article">
+		<h3>{$comment->getAuthor()} u příspěvku <a href='/front/article/detail/{$comment->getArticle()->getId()}'>{$comment->getArticle()->getTitle()}</a></h3>
+		<small>{$comment->getCreated_at()|date:"d. m. Y H:i"}</small>&emsp;<span>"{$comment->getContent()}"</span>
+	</div>
+</div>
+<div class="boxed partners">
+	<h2>{_titles.front.all.par}</h2>
+	<a href="http://hicoria.com" target="_blank"><img src="{$basePath}/images/loga_partneri/hicoria_black_logo.jpg" alt="Hicoria"></a>
+	<h2>{_titles.front.all.parcsos}</h2>
+	<a href="http://www.orientacnibeh.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/ob.png" alt="Sekce orientačního běhu"></a>
+	<a href="http://www.lesycr.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/LesyCR_zeleny.gif" alt="Lesy ČR"></a>
+	<a href="http://www.csob.cz" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/csob.svg" alt="ČSOB Pojišťovna"></a>
+	<a href="http://www.toitoi.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/toitoi.svg" alt="TOI TOI"></a>
+	<a href="http://www.tmapy.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/t-mapy.svg" alt="T-MAPY"></a>
+	<a href="http://www.zaket.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/zaket.svg" alt="Žaket"></a>
+	<a href="http://www.equica.cz/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/equica.svg" alt="Equica"></a>
+	<a href="http://trimtexsport.com/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/trimtex.svg" alt="Trimtex"></a>
+	<a href="http://www.hshsport.cz" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/hsh.svg" alt="HSH sport"></a>
+	<a href="http://www.inov-8.com/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/inov-8.svg" alt="INOV-8"></a>
+	<a href="http://www.racom.eu/" target="_blank"><img src="{$basePath}/images/loga_partneri/csos/racom.svg" alt="Racom"></a>
+</div>
+{/block}

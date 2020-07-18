@@ -1,0 +1,27 @@
+{block title}Seznam stránek{/block}
+{block content}
+<a n:foreach="$languages as $lang" href="{plink :Admin:Page:list}?filter={$lang->getShort()}"><button class="btn btn-success col-sm-3" style="margin: 1em;">Zobrazit stránky v jazyce "{$lang->getName()}"</button></a>
+<a href="{plink :Admin:Page:list}?filter={$locale}&removed=1"><button class="btn btn-warning col-sm-2" style="margin: 1em;">Zobrazit smazané stránky</button></a>
+<table class="table">
+	<tr>
+		<td>ID</td>
+		<td>Titulek</td>
+		<td>Obsah</td>
+		<td>Vytvořena</td>
+		<td>Autor</td>
+		<td>Zobrazovat</td>
+		<td>Jazyk</td>
+		<td>Akce</td>
+	</tr>
+	<tr n:foreach="$pages as $page">
+		<td>#{$page->getPage()->id}</td>
+		<td>{!$page->title}</td>
+		<td>{!$page->content}</td>
+		<td>{$page->edited|date:"H:i d.m.Y"}</td>
+		<td>{$page->getAccount()->getUsername()}</td>
+		<td>{$page->getPage()->display ? 'y' : 'n'}</td>
+		<td>{$page->lang}</td>
+		<td><a class="glyphicon glyphicon-pencil" href="{plink :Admin:Page:edit $page->getPage()->getId()}"></a>&nbsp;<a class="glyphicon glyphicon-remove" id="article-remove" n:href=":Admin:Page:delete $page->getPage()->getId()"></a></td>
+	</tr>
+</table>
+{/block}

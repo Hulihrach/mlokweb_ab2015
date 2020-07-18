@@ -1,0 +1,40 @@
+common:
+	exception: "Error"
+	author: "Author"
+	regnum: "Registration number"
+homepage:
+	hello: "Hello world!"
+	event_name: "Český pohár, INOV-8 CUP – žebříček A, žebříček B-Čechy"
+	comments: "sadkajolkbnlkadfs"
+	comment: "Comment"
+	logged_out: "You've been successfully logged out"
+forms:
+	username: "Username:"
+	password: "Password:"
+	need_username: "Insert username"
+	need_password: "Insert password"
+	register:
+		completed: "Registration succesful"
+		password_check: "Password check:"
+		need_password_check: "Input password check"
+		send: "Register"
+		user_already_exists: "User with desired username already exist"
+	login:
+		send: "Log in"
+		invalid_password: "Invalid password"
+		user_not_found: "User not found"
+	comment:
+		add_new: "Add new comment"
+		comments: "Comments"
+		need_regnum: "Insert your registration number"
+		need_content: "Insert content of comment"
+		content: "Content of comment"
+		send: "Send"
+	move:
+		prev: "Older entries"
+		next: "Newer entries"
+top:
+	admin: "Administration"
+	logout: "Log out"
+	reg: "Register"
+	login: "Sign in"

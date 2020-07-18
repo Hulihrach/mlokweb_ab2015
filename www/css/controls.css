@@ -1,0 +1,102 @@
+/** 
+	CSS Document 
+	@author Vít Macura
+	@author jmacura
+	@website mlok.wz.cz
+**/
+.triangle {
+	position: relative;
+	margin: 0;
+	width: 25pt;
+	height: 25pt;
+	top: -12pt;
+	left: -5pt;
+}
+.triangle>div {
+	width: 40px;
+	height: 3pt;
+	background: red;
+}
+
+.triangle>div::before {
+	content: " ";
+	display: block;
+	width: 27pt;
+	height: 3pt;
+	background: red;
+	-webkit-transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	transform: rotate(60deg);
+	position: absolute;
+	top: -16px;
+	right: -9px;
+}
+
+.triangle:hover>div::before {
+	height: 7pt;
+}
+
+.triangle>div::after {
+	content: " ";
+	display: block;
+	width: 27pt;
+	height: 3pt;
+	background: red;
+	-webkit-transform: rotate(-60deg);
+	-moz-transform: rotate(-60deg);
+	-ms-transform: rotate(-60deg);
+	transform: rotate(-60deg);
+	position: absolute;
+	top: -16px;
+	left: -9px;
+}
+
+.triangle:hover>div::after {
+	height: 7pt;
+}
+
+.triangle span {
+	position: relative;
+	top: 42pt !important;
+}
+
+.triangle:hover div {
+	height: 7pt;
+}
+
+.control {
+	position: fixed;
+	-moz-border-radius: 25pt/25pt;
+	-webkit-border-radius: 25pt 25pt;
+	-ms-border-radius: 25pt 25pt;
+	border-radius: 25pt/25pt;
+	border: solid 3pt #ff0000;
+	width: 25pt;
+	height: 25pt;
+}
+
+.control:hover {
+	position: relative;
+	left: -2pt;
+	top: -2pt;
+	border: solid 7pt #ff0000;
+}
+
+.control span {
+	position: relative;
+ /*top: 32pt;*/
+	z-index: 3;
+}
+
+.line {
+	position: fixed;
+	background-color: #ff0000;
+	border: none;
+	/*height: 5px;
+	width: 200px;
+	transform: rotate(20deg);
+	-moz-transform: rotate(20deg);
+	-webkit-transform: rotate(20deg);
+	-ms-transform: rotate(20deg);*/
+}

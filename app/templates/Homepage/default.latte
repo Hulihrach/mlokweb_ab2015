@@ -1,0 +1,18 @@
+{*
+	* Page Title
+*}
+
+{block title}Index{/block}
+
+{*
+	* Page Content
+*}
+
+{block content}
+<div class="content">
+	<h1 class="logo"> MariánskoLázeňský Orientační Klub </h1>
+	<div class="bg-control">bhah</div>
+	<p>{_messages.homepage.hello}</p>
+	<?php echo $user->isLoggedIn() ? $user->getIdentity()->getId() : 'ne'; ?>
+</div>
+{/block content}

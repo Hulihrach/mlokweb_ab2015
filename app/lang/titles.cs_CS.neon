@@ -1,0 +1,16 @@
+front:
+	all:
+		par: "Partneři závodu"
+		parcsos: "Partneři ČSOS"
+	home:
+		default: "Hlavní strana"
+		articles: "Nejnovější aktuality"
+	article:
+		default: "Aktuality"
+		detail: "Detail příspěvku"
+	propositions:
+		default: "Propozice"
+admin:
+		base: "Administrace"
+		front: "Administrace webu"
+		language: "Jazyky"

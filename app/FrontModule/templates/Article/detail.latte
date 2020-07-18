@@ -1,0 +1,62 @@
+{block title}{_titles.front.article.detail}{/block}
+
+{block head}
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function() {
+	$("#regnum").css('display', )
+});
+</script>
+{/block}
+{block content}
+<h2 class="article_h">{$article->title}</h2>
+<div class="article">
+	{!$article->content}<br>
+	<small>{_article.written}: {$article->account->getUsername()}&emsp;{$article->created_at|date:"d. m. Y H:i"}</small>
+</div>
+<div n:if="$article->file" class="article">
+	Příloha:
+	<a href="/attachments/{$article->file->getInternalName()}" class="article-attachment" style="background: #888">{$article->file->getPublicName()}</a>
+</div>
+<h3>{_messages.forms.comment.comments}</h3>
+<div class="boxed">
+	{form addComment}
+	<table>
+		<caption>{_messages.forms.comment.add_new}</caption>
+		{if !$user->isLoggedIn()}
+			<tr>
+				<td>{label regnum /}</td>
+				<td>{input regnum}</td>
+			</tr>
+		{else}
+			<tr>
+				Přidat komentář pod
+				<select>
+					<option id="regnum">registračním číslem</option>
+					<option id="username">uživatelským jménem</option>
+				</select>
+			</tr>
+			<tr>
+				<td id="regnumLabel">{label regnum /}</td>
+				<td id="regnumInput">{input regnum}</td>
+			</tr>
+			<tr>
+				Jméno: {$user->getIdentity()->data['username']}
+			</tr>
+		{/if}
+		<tr>
+			<td>{label content /}</td>
+			<td>{input content}</td>
+		</tr>
+		{input articleId, value => $article->contentId}
+		<tr>
+			<td>{input send}</td>
+		</tr>
+	</table>
+	{/form}
+</div>
+<div n:foreach="$comments as $comment" class="boxed comment">
+	<strong>{$comment->getAuthor()}</strong>:&nbsp;{$comment->content}<br>
+	<small>{$comment->created_at|date:"d. m. Y H:i"}</small>
+</div>
+{/block}

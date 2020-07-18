@@ -1,0 +1,11 @@
+nette:
+    database:
+        dsn: 'mysql:host=127.0.0.1;dbname=mlok'
+        user: root
+        password: 
+doctrine:
+    user: root
+    password: 
+    dbname: mlok
+    metadata:
+        App: %appDir%
